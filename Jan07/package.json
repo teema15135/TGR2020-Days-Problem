@@ -1,0 +1,19 @@
+{
+  "name": "Jan07",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tensorflow/tfjs": "^1.5.1",
+    "@tensorflow/tfjs-node": "^1.5.1",
+    "d3": "^5.15.0",
+    "jest": "^24.9.0",
+    "plotly": "^1.0.6"
+  }
+}
