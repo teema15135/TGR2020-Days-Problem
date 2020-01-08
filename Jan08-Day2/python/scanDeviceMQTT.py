@@ -4,12 +4,13 @@ from bleak import discover
 import paho.mqtt.client as mqtt
 import json
 
-topic = '/tgr2020/jan08/data/22'
+topic = '/tgr2020/jan08/data/21'
 
 async def scan(mac_addrs, queue):
     while True:
         print('Start scanning')
         tstart = loop.time()
+        print('before discover')
         devices = await discover()
         print('Found %d devices'%(len(devices)))
         for dev in devices:
@@ -47,11 +48,13 @@ async def publish(queue):
 
 if __name__ == '__main__':
     # mac_addrs = ('80:E1:26:07:C8:FB', '80:E1:26:00:66:5F', '80:E1:26:00:62:97')
-    mac_addrs = ("80:E1:26:07:C8:FB", "80:E1:26:00:66:5F", "80:E1:26:00:62:97")
+    #               3                   18                      21                      36
+    mac_addrs = ('80:E1:26:07:C8:7B', '80:E1:26:07:CA:DC', '80:E1:26:07:E8:68', '80:E1:26:00:B4:29')
     loop = asyncio.get_event_loop()
     queue = asyncio.Queue()
-    # loop.create_task(scan(mac_addrs, queue))
+    loop.create_task(scan(mac_addrs, queue))
     loop.create_task(publish(queue))
+    print('before run forever')
     try:
         loop.run_forever()
     except KeyboardInterrupt:
