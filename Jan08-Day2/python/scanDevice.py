@@ -17,7 +17,7 @@ async def scan(mac_addrs):
         await asyncio.sleep(10 - telapsed)
 
 if __name__ == '__main__':
-    mac_addrs = ("80:E1:26:07:C8:FB", "80:E1:26:00:66:5F", "80:E1:26:00:62:97")
+    mac_addrs = ("80:E1:26:07:C8:FB", "80:E1:26:00:66:5F", "80:E1:26:00:62:97", "80:E1:26:07:E8:68")
     loop = asyncio.get_event_loop()
     loop.create_task(scan(mac_addrs))
     try:
