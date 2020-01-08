@@ -2,6 +2,7 @@ import paho.mqtt.client as mqtt
 import time
 import socket
 import json
+from datetime import datetime
 
 id = 'KujoCSV'
 #           3                       18                  21                  36
@@ -40,7 +41,7 @@ def on_message(client, userdata, msg):
         else:
             None
 
-        appendStr = '\n' + ','.join(rssiArr) + pos
+        appendStr = '\n' + ','.join(rssiArr) + pos + ',"'+ str(datetime.utcnow()) + '"'
         f = open("../csv/data.csv", "a+")
         f.write(appendStr)
         f.close()
